@@ -16,7 +16,3 @@ spec:
     targetPort: 8001
     protocol: TCP
     name: http
-  sessionAffinity: None
-  ipFamilies:
-  - IPv4
-  ipFamilyPolicy: SingleStack
