@@ -28,7 +28,7 @@ spec:
 
       containers:
       - name: get-ip-service
-        image: f4rsh4d/get-ip-service:latest
+        image: f4rsh4d/get-ip-service:docker-36426ea
         imagePullPolicy: IfNotPresent
 
         ports:
