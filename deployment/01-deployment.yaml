@@ -29,7 +29,7 @@ spec:
 
       containers:
       - name: get-ip-service
-        image: f4rsh4d/get-ip-service:docker-36426ea
+        image: f4rsh4d/get-ip-service:docker
         imagePullPolicy: Always
 
         ports:
