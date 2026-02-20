@@ -5,7 +5,7 @@ on:
     branches:
       - master
       - main
-      - kuber
+      - docker
     paths:
       - 'Dockerfile'
       - 'main.py'
