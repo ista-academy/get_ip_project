@@ -2,7 +2,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: get-ip-config
-  namespace: ip-services
+  namespace: ista
   labels:
     app: get-ip-service
 data:

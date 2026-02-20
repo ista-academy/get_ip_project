@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: ip-services
+  name: ista
   labels:
     name: ip-services
     environment: production
