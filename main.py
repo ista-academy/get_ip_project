@@ -21,14 +21,18 @@ ip_services = IPLocationservice()
 @app.route("/get-location", methods=["GET"])
 def get_location():
     try:
-        return ip_services.get_location_data(ip_services.get_public_ip())
+        ip = ip_services.get_public_ip()
+        if not ip:
+            return jsonify({"status": "fail", "data": "Could not retrieve public IP"})
+
+        return ip_services.get_location_data(ip)
 
     except requests.RequestException as e:
         logger.error(f"Network Error : {e}")
-        return jsonify({"status": "fail", "data": "faild to fetch data"})
+        return jsonify({"status": "fail", "data": "Failed to fetch data"}), 500
     except Exception as error:
         logger.error(f"Other Error : {error}")
-        return jsonify({"status": "fail", "data": "faild to fetch data"})
+        return jsonify({"status": "fail", "data": "Failed to fetch data"}), 500
 
 
 if __name__ == "__main__":
