@@ -39,7 +39,6 @@ COPY --from=builder --chown=appuser:appuser /root/.local /home/appuser/.local
 COPY --chown=appuser:appuser config.py .
 COPY --chown=appuser:appuser main.py .
 COPY --chown=appuser:appuser utils/ ./utils/
-COPY --chown=appuser:appuser readme.md .
 
 # Switch to non-root user
 USER appuser
