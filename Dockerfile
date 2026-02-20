@@ -16,10 +16,15 @@ RUN pip install --user --no-cache-dir -r req.txt
 # Final stage - lightweight runtime image
 FROM python:3.11-slim
 
-# Set environment variables
+# Set environment variables (can be overridden at runtime)
 ENV PYTHONUNBUFFERED=1 \
     PYTHONDONTWRITEBYTECODE=1 \
-    PATH=/home/appuser/.local/bin:$PATH
+    PATH=/home/appuser/.local/bin:$PATH \
+    IP_API_URL=http://ip-api.com/json \
+    IPIFY_URL=https://api.ipify.org?format=json \
+    DEBUG=False \
+    PORT=8001 \
+    LOG_LEVEL=INFO
 
 # Create a non-root user for security
 RUN groupadd -r appuser && useradd -r -g appuser appuser
@@ -31,9 +36,10 @@ WORKDIR /app
 COPY --from=builder --chown=appuser:appuser /root/.local /home/appuser/.local
 
 # Copy application code
-COPY --chown=appuser:appuser config.sample.py config.py
+COPY --chown=appuser:appuser config.py .
 COPY --chown=appuser:appuser main.py .
 COPY --chown=appuser:appuser utils/ ./utils/
+COPY --chown=appuser:appuser readme.md .
 
 # Switch to non-root user
 USER appuser
