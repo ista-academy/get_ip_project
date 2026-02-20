@@ -7,7 +7,7 @@ metadata:
     app: get-ip-service
 data:
   # API endpoints for IP services
-  IP_API_URL: "http://ipwho.is"
+  IP_API_URL: "http://ipwho.is/"
   IPIFY_URL: "https://api.ipify.org?format=json"
 
   # Flask configuration
@@ -15,3 +15,16 @@ data:
   PORT: "8001"
   LOG_LEVEL: "INFO"
   FLASK_ENV: "production"
+
+
+# Free IP Geolocation API Alternatives
+# 1. ipwho.is - https://ipwho.is/
+# 2. ip-api.com - http://ip-api.com/json/{IP_ADDRESS}
+# 3. ipinfo.io - https://ipinfo.io/{IP_ADDRESS}/json
+# 4. ipstack.com - https://ipstack.com/ (requires API key, free tier available)
+# 5. ipdata.co - https://ipdata.co/{IP_ADDRESS}/json/ (requires API key, free tier available)
+# 6. ipgeolocation.io - https://ipgeolocation.io/ip-location-api.html (requires API key, free tier available)
+# 7. ipapi.co - https://ipapi.co/{IP_ADDRESS}/json/ (requires API key, free tier available)
+# 8. ip-api.io - https://ip-api.io/api/json/{IP_ADDRESS} (requires API key, free tier available)
+# 9. freeipapi.com - https://freeipapi.com/api/json/{IP_ADDRESS} (requires API key, free tier available)
+# 10. ip2location.com - https://www.ip2location.com/web-service/ip2location (requires API key, free tier available)
