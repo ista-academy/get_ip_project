@@ -2,7 +2,7 @@ apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
   name: get-ip-service
-  namespace: default
+  namespace: ip-services
   labels:
     app: get-ip-service
 spec:
