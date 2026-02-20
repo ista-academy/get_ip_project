@@ -20,6 +20,7 @@ FROM python:3.11-slim
 ENV PYTHONUNBUFFERED=1 \
     PYTHONDONTWRITEBYTECODE=1 \
     PATH=/home/appuser/.local/bin:$PATH \
+    PYTHONPATH=/home/appuser/.local/lib/python3.11/site-packages:$PYTHONPATH \
     IP_API_URL=http://ip-api.com/json \
     IPIFY_URL=https://api.ipify.org?format=json \
     DEBUG=False \
