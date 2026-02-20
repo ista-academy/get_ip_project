@@ -18,6 +18,12 @@ app = Flask(__name__)
 ip_services = IPLocationservice()
 
 
+@app.route("/health", methods=["GET"])
+def health():
+    """Lightweight health check endpoint - no external API calls"""
+    return jsonify({"status": "ok"}), 200
+
+
 @app.route("/get-location", methods=["GET"])
 def get_location():
     try:
