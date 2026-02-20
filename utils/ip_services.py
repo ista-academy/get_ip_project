@@ -14,7 +14,7 @@ class IPLocationservice:
     def get_public_ip(self):
         logger.info(f"Start to request IP {self.ipify}")
         try:
-            ip = requests.get(self.ipify, timeout=5).json().get("ip")
+            ip = requests.get(self.ipify, timeout=10).json().get("ip")
             if ip:
                 return ip
             else:
@@ -27,7 +27,7 @@ class IPLocationservice:
     def get_location_data(self, ip_address=None):
         logger.info(f"Start to request IP {self.ip_api}/{ip_address}")
         try:
-            response = requests.get(f"{self.ip_api}/{ip_address}", timeout=5)
+            response = requests.get(f"{self.ip_api}/{ip_address}", timeout=10)
             response.raise_for_status()
             data = response.json()
 
