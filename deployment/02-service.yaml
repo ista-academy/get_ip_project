@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: get-ip-service
+  namespace: default
+  labels:
+    app: get-ip-service
+  annotations:
+    description: "IP Location Service - Get geolocation for any IP address"
+spec:
+  type: ClusterIP
+  selector:
+    app: get-ip-service
+  ports:
+  - port: 80
+    targetPort: 8001
+    protocol: TCP
+    name: http
+  sessionAffinity: None
+  ipFamilies:
+  - IPv4
+  ipFamilyPolicy: SingleStack

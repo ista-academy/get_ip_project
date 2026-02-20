@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: get-ip-config
+  namespace: default
+  labels:
+    app: get-ip-service
+data:
+  # API endpoints for IP services
+  IP_API_URL: "http://ip-api.com/json"
+  IPIFY_URL: "https://api.ipify.org?format=json"
+  
+  # Flask configuration
+  DEBUG: "False"
+  PORT: "8001"
+  LOG_LEVEL: "INFO"
+  FLASK_ENV: "production"

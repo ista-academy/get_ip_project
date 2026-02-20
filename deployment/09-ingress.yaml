@@ -1,0 +1,43 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: get-ip-service
+  namespace: default
+  labels:
+    app: get-ip-service
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+    nginx.ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/rate-limit: "100"
+spec:
+  ingressClassName: nginx
+
+  # TLS configuration (optional - requires cert-manager)
+  tls:
+  - hosts:
+    - api.example.com
+    secretName: get-ip-service-tls
+
+  rules:
+  # HTTP rule - replace example.com with your domain
+  - host: api.example.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: get-ip-service
+            port:
+              number: 80
+  # Alternative: Simple path-based routing (without domain)
+  # - http:
+  #     paths:
+  #     - path: /ip
+  #       pathType: Prefix
+  #       backend:
+  #         service:
+  #           name: get-ip-service
+  #           port:
+  #             number: 80
