@@ -1,0 +1,30 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: get-ip-config
+  namespace: ista
+  labels:
+    app: get-ip-service
+data:
+  # API endpoints for IP services
+  IP_API_URL: "{{ .Values.config.IP_API_URL }}"
+  IPIFY_URL: "{{ .Values.config.IPIFY_URL }}"
+
+  # Flask configuration
+  DEBUG: "{{ .Values.config.DEBUG }}"
+  PORT: "{{ .Values.config.PORT }}"
+  LOG_LEVEL: "{{ .Values.config.LOG_LEVEL }}"
+  FLASK_ENV: "{{ .Values.config.FLASK_ENV }}"
+
+
+# Free IP Geolocation API Alternatives
+# 1. ipwho.is - https://ipwho.is/
+# 2. ip-api.com - http://ip-api.com/json/{IP_ADDRESS}
+# 3. ipinfo.io - https://ipinfo.io/{IP_ADDRESS}/json
+# 4. ipstack.com - https://ipstack.com/ (requires API key, free tier available)
+# 5. ipdata.co - https://ipdata.co/{IP_ADDRESS}/json/ (requires API key, free tier available)
+# 6. ipgeolocation.io - https://ipgeolocation.io/ip-location-api.html (requires API key, free tier available)
+# 7. ipapi.co - https://ipapi.co/{IP_ADDRESS}/json/ (requires API key, free tier available)
+# 8. ip-api.io - https://ip-api.io/api/json/{IP_ADDRESS} (requires API key, free tier available)
+# 9. freeipapi.com - https://freeipapi.com/api/json/{IP_ADDRESS} (requires API key, free tier available)
+# 10. ip2location.com - https://www.ip2location.com/web-service/ip2location (requires API key, free tier available)

@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: get-ip-service
+  namespace: ista
+  labels:
+    app: get-ip-service
+  annotations:
+    description: "IP Location Service - Get geolocation for any IP address"
+spec:
+  type: {{ .Values.service.type }}
+  selector:
+    app: get-ip-service
+  ports:
+  - port: {{ .Values.service.port }}
+    targetPort: 8001
+    protocol: TCP
+    name: http
