@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: get-ip-service
-  namespace: {{ .Release.Namespace }}
+  namespace: ista
   labels:
     app: get-ip-service
     version: v1

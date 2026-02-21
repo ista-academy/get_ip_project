@@ -3,7 +3,7 @@ apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
   name: get-ip-service
-  namespace: {{ .Release.Namespace }}
+  namespace: ista
   labels:
     app: get-ip-service
 spec:
