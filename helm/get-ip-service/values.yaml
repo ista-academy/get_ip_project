@@ -1,0 +1,44 @@
+# Default values for get-ip-service.
+# These can be overridden during `helm install/upgrade`.
+
+replicaCount: 3
+
+image:
+  repository: f4rsh4d/get-ip-service
+  pullPolicy: IfNotPresent
+  tag: docker-002cb37
+
+service:
+  type: ClusterIP
+  port: 80
+
+# Configuration exposed via ConfigMap
+config:
+  IP_API_URL: "http://ipwho.is/"
+  IPIFY_URL: "https://api.ipify.org?format=json"
+  DEBUG: "False"
+  PORT: "8001"
+  LOG_LEVEL: "INFO"
+  FLASK_ENV: "production"
+
+resources:
+  requests:
+    memory: "100Mi"
+    cpu: "50m"
+  limits:
+    memory: "200Mi"
+    cpu: "100m"
+
+autoscaling:
+  enabled: true
+  minReplicas: 2
+  maxReplicas: 10
+  metrics:
+    cpu:
+      targetAverageUtilization: 70
+    memory:
+      targetAverageUtilization: 80
+
+ingress:
+  enabled: true
+  host: kubernetes.istaacademy.com
